@@ -1,0 +1,327 @@
+[
+  {
+    "inspection_id": "INS-1770221798",
+    "timestamp": "2026-02-04 21:46:38",
+    "defect_class": "scratch",
+    "confidence": 0.7808,
+    "top_predictions": [
+      {
+        "label": "scratch",
+        "prob": 0.7808011174201965
+      },
+      {
+        "label": "center",
+        "prob": 0.13578759133815765
+      },
+      {
+        "label": "Local",
+        "prob": 0.08014844357967377
+      }
+    ],
+    "inference_time_ms": 11292,
+    "drift_detected": false,
+    "severity": "High",
+    "cause_summary": "Physical contact from handling equipment or misaligned wafer transport mechanisms.",
+    "synthetic_count": 0
+  },
+  {
+    "inspection_id": "INS-1770221871",
+    "timestamp": "2026-02-04 21:47:51",
+    "defect_class": "random",
+    "confidence": 0.6688,
+    "top_predictions": [
+      {
+        "label": "random",
+        "prob": 0.6687644720077515
+      },
+      {
+        "label": "Local",
+        "prob": 0.30906009674072266
+      },
+      {
+        "label": "center",
+        "prob": 0.010300630703568459
+      }
+    ],
+    "inference_time_ms": 2843,
+    "drift_detected": false,
+    "severity": "Low",
+    "cause_summary": "Random particle deposition from cleanroom airflow disturbances or filter degradation.",
+    "synthetic_count": 0
+  },
+  {
+    "inspection_id": "INS-1770221937",
+    "timestamp": "2026-02-04 21:48:57",
+    "defect_class": "Local",
+    "confidence": 0.4619,
+    "top_predictions": [
+      {
+        "label": "Local",
+        "prob": 0.4618595540523529
+      },
+      {
+        "label": "center",
+        "prob": 0.29070720076560974
+      },
+      {
+        "label": "scratch",
+        "prob": 0.18650300800800323
+      }
+    ],
+    "inference_time_ms": 3409,
+    "drift_detected": false,
+    "severity": null,
+    "cause_summary": "The detected pattern does not match known defect categories.",
+    "synthetic_count": 0
+  },
+  {
+    "inspection_id": "INS-1770222058",
+    "timestamp": "2026-02-04 21:50:58",
+    "defect_class": "center",
+    "confidence": 0.5172,
+    "top_predictions": [
+      {
+        "label": "center",
+        "prob": 0.5172122120857239
+      },
+      {
+        "label": "Local",
+        "prob": 0.47926265001296997
+      },
+      {
+        "label": "Edge ring",
+        "prob": 0.0017440661322325468
+      }
+    ],
+    "inference_time_ms": 6020,
+    "drift_detected": false,
+    "severity": "Medium",
+    "cause_summary": "Instability in center-zone temperature or chamber pressure during deposition or etching steps.",
+    "synthetic_count": 0
+  },
+  {
+    "inspection_id": "INS-1770222356",
+    "timestamp": "2026-02-04 21:55:56",
+    "defect_class": "Local",
+    "confidence": 0.7972,
+    "top_predictions": [
+      {
+        "label": "Local",
+        "prob": 0.7972372174263
+      },
+      {
+        "label": "center",
+        "prob": 0.17015480995178223
+      },
+      {
+        "label": "random",
+        "prob": 0.016996731981635094
+      }
+    ],
+    "inference_time_ms": 15781,
+    "drift_detected": false,
+    "severity": null,
+    "cause_summary": "The detected pattern does not match known defect categories.",
+    "synthetic_count": 0
+  },
+  {
+    "inspection_id": "INS-1770222371",
+    "timestamp": "2026-02-04 21:56:11",
+    "defect_class": "Local",
+    "confidence": 0.7972,
+    "top_predictions": [
+      {
+        "label": "Local",
+        "prob": 0.7972372174263
+      },
+      {
+        "label": "center",
+        "prob": 0.17015480995178223
+      },
+      {
+        "label": "random",
+        "prob": 0.016996731981635094
+      }
+    ],
+    "inference_time_ms": 6391,
+    "drift_detected": false,
+    "severity": null,
+    "cause_summary": "The detected pattern does not match known defect categories.",
+    "synthetic_count": 0
+  },
+  {
+    "inspection_id": "INS-1770222416",
+    "timestamp": "2026-02-04 21:56:56",
+    "defect_class": "scratch",
+    "confidence": 0.8476,
+    "top_predictions": [
+      {
+        "label": "scratch",
+        "prob": 0.8475568890571594
+      },
+      {
+        "label": "Local",
+        "prob": 0.11790208518505096
+      },
+      {
+        "label": "center",
+        "prob": 0.03329360857605934
+      }
+    ],
+    "inference_time_ms": 4399,
+    "drift_detected": false,
+    "severity": "High",
+    "cause_summary": "Physical contact from handling equipment or misaligned wafer transport mechanisms.",
+    "synthetic_count": 0
+  },
+  {
+    "inspection_id": "INS-1770222673",
+    "timestamp": "2026-02-04 22:01:13",
+    "defect_class": "Edge ring",
+    "confidence": 0.8828,
+    "top_predictions": [
+      {
+        "label": "Edge ring",
+        "prob": 0.8828048706054688
+      },
+      {
+        "label": "scratch",
+        "prob": 0.09620445966720581
+      },
+      {
+        "label": "Local",
+        "prob": 0.010500612668693066
+      }
+    ],
+    "inference_time_ms": 2978,
+    "drift_detected": false,
+    "severity": null,
+    "cause_summary": "The detected pattern does not match known defect categories.",
+    "synthetic_count": 0
+  },
+  {
+    "inspection_id": "INS-1770222799",
+    "timestamp": "2026-02-04 22:03:19",
+    "defect_class": "Edge ring",
+    "confidence": 0.8828,
+    "top_predictions": [
+      {
+        "label": "Edge ring",
+        "prob": 0.8828048706054688
+      },
+      {
+        "label": "scratch",
+        "prob": 0.09620445966720581
+      },
+      {
+        "label": "Local",
+        "prob": 0.010500612668693066
+      }
+    ],
+    "inference_time_ms": 3715,
+    "drift_detected": false,
+    "severity": null,
+    "cause_summary": "The detected pattern does not match known defect categories.",
+    "synthetic_count": 0
+  },
+  {
+    "inspection_id": "INS-1770222818",
+    "timestamp": "2026-02-04 22:03:38",
+    "defect_class": "Edge ring",
+    "confidence": 0.9027,
+    "top_predictions": [
+      {
+        "label": "Edge ring",
+        "prob": 0.9026715755462646
+      },
+      {
+        "label": "scratch",
+        "prob": 0.029055900871753693
+      },
+      {
+        "label": "center",
+        "prob": 0.028785547241568565
+      }
+    ],
+    "inference_time_ms": 2688,
+    "drift_detected": false,
+    "severity": null,
+    "cause_summary": "The detected pattern does not match known defect categories.",
+    "synthetic_count": 0
+  },
+  {
+    "inspection_id": "INS-1770223095",
+    "timestamp": "2026-02-04 22:08:15",
+    "defect_class": "Edge ring",
+    "confidence": 0.8684,
+    "top_predictions": [
+      {
+        "label": "Edge ring",
+        "prob": 0.8684079647064209
+      },
+      {
+        "label": "scratch",
+        "prob": 0.05824870243668556
+      },
+      {
+        "label": "Local",
+        "prob": 0.03635435178875923
+      }
+    ],
+    "inference_time_ms": 11398,
+    "drift_detected": false,
+    "severity": null,
+    "cause_summary": "The detected pattern does not match known defect categories.",
+    "synthetic_count": 0
+  },
+  {
+    "inspection_id": "INS-1770266672",
+    "timestamp": "2026-02-05 10:14:32",
+    "defect_class": "Edge ring",
+    "confidence": 0.8684,
+    "top_predictions": [
+      {
+        "label": "Edge ring",
+        "prob": 0.8684079647064209
+      },
+      {
+        "label": "scratch",
+        "prob": 0.05824870243668556
+      },
+      {
+        "label": "Local",
+        "prob": 0.03635435178875923
+      }
+    ],
+    "inference_time_ms": 15676,
+    "drift_detected": false,
+    "severity": null,
+    "cause_summary": "The detected pattern does not match known defect categories.",
+    "synthetic_count": 0
+  },
+  {
+    "inspection_id": "INS-1770266824",
+    "timestamp": "2026-02-05 10:17:04",
+    "defect_class": "Edge ring",
+    "confidence": 0.8828,
+    "top_predictions": [
+      {
+        "label": "Edge ring",
+        "prob": 0.8828048706054688
+      },
+      {
+        "label": "scratch",
+        "prob": 0.09620445966720581
+      },
+      {
+        "label": "Local",
+        "prob": 0.010500612668693066
+      }
+    ],
+    "inference_time_ms": 4502,
+    "drift_detected": false,
+    "severity": null,
+    "cause_summary": "The detected pattern does not match known defect categories.",
+    "synthetic_count": 0
+  }
+]
