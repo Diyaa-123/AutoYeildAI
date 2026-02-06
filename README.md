@@ -75,6 +75,5 @@ config/                 YAML configs and prompt templates
 
 This repository includes large datasets and model files under `data/`, `outputs/`, and `models/`. If you plan to push to GitHub, consider using Git LFS or moving large assets to external storage.
 
-## License
 
-Specify your license here (for example, MIT or Apache-2.0).
+
