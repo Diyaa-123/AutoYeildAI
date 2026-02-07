@@ -1,0 +1,2 @@
+Final Validation Accuracy (best checkpoint): 0.8182
+Final Macro F1 (best checkpoint): 0.8069
