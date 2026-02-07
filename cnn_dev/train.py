@@ -26,6 +26,7 @@ from collections import Counter
 import numpy as np
 import torch
 import torch.nn as nn
+import torch.nn.functional as F
 import torch.optim as optim
 from torch.utils.data import DataLoader, WeightedRandomSampler
 from torchvision import datasets, transforms
@@ -68,7 +69,11 @@ LR_BACKBONE = 2e-5
 WEIGHT_DECAY = 1e-2
 
 # Regularization
-LABEL_SMOOTHING = 0.05  # keep small; too high can hurt subtle classes
+LABEL_SMOOTHING = 0.05  # used only if not using Focal Loss
+# Focal Loss (down-weights easy examples, helps hard/minority classes)
+USE_FOCAL_LOSS = True
+FOCAL_GAMMA = 2.0  # higher = more focus on hard examples
+FOCAL_ALPHA = None  # None = uniform; or list per-class weight (length num_classes)
 
 # Early stopping
 EARLY_STOP_PATIENCE = 6
@@ -127,6 +132,42 @@ def compute_classification_metrics(targets, preds, class_names):
         "confusion_matrix": conf.tolist(),
     }
 
+
+# =========================
+# Focal Loss
+# =========================
+class FocalLoss(nn.Module):
+    """Focal loss: down-weights easy examples, focuses on hard/minority classes."""
+
+    def __init__(self, num_classes, gamma=2.0, alpha=None, reduction="mean"):
+        super().__init__()
+        self.num_classes = num_classes
+        self.gamma = gamma
+        self.reduction = reduction
+        if alpha is not None:
+            self.register_buffer("alpha", torch.tensor(alpha, dtype=torch.float32))
+        else:
+            self.alpha = None
+
+    def forward(self, logits, targets):
+        # logits: (N, C), targets: (N,) long
+        log_probs = F.log_softmax(logits, dim=1)
+        probs = log_probs.exp()
+        targets_one_hot = F.one_hot(targets, num_classes=self.num_classes).float()
+        pt = (probs * targets_one_hot).sum(dim=1)  # p_t
+        focal_weight = (1.0 - pt).clamp(min=1e-6).pow(self.gamma)
+        nll = -(targets_one_hot * log_probs).sum(dim=1)
+        loss = focal_weight * nll
+        if self.alpha is not None:
+            alpha_t = self.alpha[targets]
+            loss = alpha_t * loss
+        if self.reduction == "mean":
+            return loss.mean()
+        if self.reduction == "sum":
+            return loss.sum()
+        return loss
+
+
 # =========================
 # Transforms (POSITION-SAFE)
 # =========================
@@ -136,7 +177,7 @@ imagenet_norm = transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.2
 train_transform = transforms.Compose([
     transforms.Resize(256),
     transforms.CenterCrop(224),     # preserve global geometry
-    transforms.RandomRotation(8),   # small rotations only
+    transforms.RandomRotation(3),   # mild rotation
     transforms.ColorJitter(brightness=0.1, contrast=0.1),  # mild lighting robustness
     transforms.ToTensor(),
     imagenet_norm,
@@ -240,7 +281,12 @@ set_trainable_last_n_blocks(0)
 
 model = model.to(DEVICE)
 
-criterion = nn.CrossEntropyLoss(label_smoothing=LABEL_SMOOTHING)
+if USE_FOCAL_LOSS:
+    criterion = FocalLoss(num_classes=num_classes, gamma=FOCAL_GAMMA, alpha=FOCAL_ALPHA).to(DEVICE)
+    print(f"Loss: Focal (gamma={FOCAL_GAMMA})")
+else:
+    criterion = nn.CrossEntropyLoss(label_smoothing=LABEL_SMOOTHING)
+    print("Loss: CrossEntropy (label_smoothing={})".format(LABEL_SMOOTHING))
 
 # =========================
 # Optimizer / Scheduler
